@@ -1,11 +1,10 @@
-from django.shortcuts import render
-from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+from django.template import loader
 from . import models
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 def welcomePage(request):
@@ -52,4 +51,37 @@ def signupSubmit(request):
         farm.save()
         return redirect('welcomePage')
     return HttpResponse("404-Not Found")
+
+def search(request):
+    search_query=request.GET['searchQuery']
+    if len(search_query)>80:
+        allschemes=models.Schemes.objects.none()
+    else:
+        alltitle=models.Schemes.objects.filter(title__icontains=search_query)
+        allcontent=models.Schemes.objects.filter(about__icontains=search_query)
+        allcontacts=models.Schemes.objects.filter(tocontact__icontains=search_query)
+        allschemes=alltitle.union(allcontent,allcontacts)
+
+
+
+    context={'scheme':allschemes,
+         'query':search_query,
+        }
+    return render(request,'welcomeapp/search.html',context)
+    
+
+
+def schemeDetail(request,schemedet):
+    schmOb=models.Schemes.objects.get(title=schemedet)
+    try:
+        benftOb=models.Benifits.objects.filter(stitle=schmOb).values()
+        
+    except:
+        benftOb=None
+    context={
+        'scheme':schmOb,
+        'benifit':benftOb,
+    }
+    template = loader.get_template('welcomeapp/scheme_detail.html')
+    return HttpResponse(template.render(context,request))
 
