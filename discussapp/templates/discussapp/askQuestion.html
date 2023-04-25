@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+
+<style>
+{%block style%}
+
+.querycontainer{
+    display: flex;
+    margin: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+#ques_field{
+        font-family: 'Carter One', cursive;
+        font-size: 20px;
+        width: 100%;
+        height: 100px;
+        padding: 12px 20px;
+        margin: 20px;
+        display: inline-block;
+        /* border: 1px solid aqua; */
+        box-sizing: border-box;
+        background-color: rgba(128, 128, 128, 0.312);
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 5px;
+        color:black;
+}
+button {
+        font-family: 'Carter One', cursive;
+        font-size: 18px;
+/* font-family: 'Secular One', sans-serif; */
+        background-color:blue;
+        border:solid 1px blue;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+.submit{
+    background-color: mediumblue;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+form{
+    width: 100%;
+}
+{%endblock style%}
+</style>
+
+
+
+
+{%block body%}
+<h2>Ask Query</h2>
+<br>
+<div class="querycontainer">
+    <form action="questionSubmit" method="post">
+        {% csrf_token %}
+        <input id="ques_field" type="text" placeholder="Enter the query here" name="question" required="" maxlength="500">
+        <button class="submit" type="submit">SUBMIT</button>
+    </form>
+</div>
+
+
+{%endblock body%}

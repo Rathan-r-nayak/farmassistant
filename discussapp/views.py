@@ -40,6 +40,6 @@ def questionSubmit(request):
         ob=models.Questions(fid=farmer,question=query)
         ob.save()
 
-        return redirect('queryPage')
+        return redirect('discusspage')
     
     return HttpResponse('404-NOT FOUND')
