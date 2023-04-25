@@ -133,23 +133,23 @@ border: none;
         <!-- for loop here -->
         {%for ques in queries%}
         <div class="onediscussion">
+            <p style="font-size: larger;color: rgb(177, 198, 62);">question</p>
             <div class="div_question">
-                {%for f in farmer%}
-                <p class="who-asked">
-                    {{f.name}}
-                    {{ forloop.counter }}
-                </p>
-                {%endfor%}
+                <!-- <p class="who-asked">
+                    Rathan:
+                                    </p> -->
                 <p class="question">
                 {{ques.question}} </p>
             </div>
             
+            <p class="div_answer" style="font-size: larger;
+            color: rgb(231, 119, 43);">answers</p>
             {%for answer in ans%}
             {%if answer.query_id == ques.query_id%}
             <div class="div_answer">
-                <p class="replied">
+                <!-- <p class="replied">
                     :Pradwin
-                </p>
+                </p> -->
                 <p class="answer">
                     {{answer.answer}}
                 </p>

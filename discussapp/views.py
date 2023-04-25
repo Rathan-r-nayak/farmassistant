@@ -6,12 +6,18 @@ from django.http import HttpResponse,HttpResponseRedirect
 # Create your views here.
 def discuss(request):
     query=models.Questions.objects.all()
-    answer=models.Answers.objects.all().values()
-    farmer=[]
+    answer=models.Answers.objects.all()
+    farmer=dict()
     for i in query:
-        farmer.append(models.Farmer.objects.get(fid=i.fid))
+        farmer['name']=models.Farmer.objects.get(fid=i.fid).name
+        farmer['ques']=i.question
+        for j in answer:
+            if i.query_id==j.query_id:
+                farmer['ans']=j.answer
     # farmer=models.Farmer.objects.all().values()
+    print("===========")
     print(farmer)
+    print("===========")
     
     context={
         'queries':query,
