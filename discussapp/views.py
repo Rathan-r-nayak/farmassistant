@@ -11,6 +11,7 @@ def discuss(request):
         'queries':query,
         'ans':answer
     }
+    print("\n",request.user,"\n")
     template = loader.get_template('discussapp/discussion.html')
     return HttpResponse(template.render(context, request))
     # return render(request,'discussapp/discussion.html')
@@ -20,7 +21,9 @@ def answerSubmit(request):
         ans=request.POST['ans']
         qid=int(request.POST['fid_qid'])
 
-        farmer=models.Farmer.objects.get(fid=21)
+        user=request.user
+        userob=models.AuthUser.objects.get(username=user)
+        farmer=models.Farmer.objects.get(fid=userob)
         ob=models.Answers(query_id=qid,fid=farmer,answer=ans)
         ob.save()
         return redirect('discusspage')
@@ -36,7 +39,9 @@ def questionSubmit(request):
         query=request.POST['question']
 
         
-        farmer=models.Farmer.objects.get(fid=21)
+        user=request.user
+        userob=models.AuthUser.objects.get(username=user)
+        farmer=models.Farmer.objects.get(fid=userob)
         ob=models.Questions(fid=farmer,question=query)
         ob.save()
 
