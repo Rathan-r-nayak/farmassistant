@@ -9,7 +9,9 @@ from . import models
 
 # Create your views here.
 def welcomePage(request):
-    return render(request,'welcomeapp/index.html')
+    ob=models.Schemes.objects.all()
+    context={'scheme':ob}
+    return render(request,'welcomeapp/index.html',context)
 
 def loginSubmit(request):
     if request.method=='POST':
