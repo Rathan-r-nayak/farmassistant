@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+       
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -184,6 +185,34 @@ margin: 5px 0px;
             </div>
           </form>
         </div>
+        <div class="form-box register">
+        <h2>Register</h2>
+        <form action="#">
+          <div class="input-box">
+            <input type="text" required />
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <input type="email" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <input type="password" required />
+            <label>Password</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox" />Agree to Condition</label
+            ><a href="#">Forgot Password</a>
+          </div>
+          <button type="submit" class="btn">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account?<a href="#" class="login-link"
+                >Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
     <script>const wrapper=document.querySelector(".wrapper");
         const loginlink=document.querySelector(".login-link");
