@@ -9,6 +9,7 @@
 {%block style%}
 body{
     font-family: 'Roboto';
+    background-color: #212A3E;
 }
 h2{
     color: rgb(103, 100, 65);
@@ -19,12 +20,14 @@ h2{
     display: flex;
     flex-direction: column;
     margin: 30px 20px;
+    background-color: #9BA4B5;
+    border-radius: 20px;
 }
 .heading{
     display: flex;
     justify-content: center;
 }
-.about{
+p,h4{
     margin: 30px 20px;
     
 }
@@ -39,6 +42,13 @@ h2{
 .scheme_name{
     font-size: 25px;
     color: saddlebrown;
+}
+footer{
+    width: 100%;
+    height:60px;
+    background-color:#212A3E;
+    color: white;
+    text-align: center;
 }
 {%endblock style%}
 </style>
@@ -71,5 +81,8 @@ h2{
         <p class="details_scheme">{{scheme.tocontact}}</p>
     </div>
 </div>
+<footer>
+    &#169 Copywrite
+</footer>
 
 {%endblock body%}
