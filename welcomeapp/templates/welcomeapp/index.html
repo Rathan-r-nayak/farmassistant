@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       
+{% extends 'main.html' %}
+
+
+<style>
+{%block style%}
 *{
     margin: 0;
     padding: 0;
@@ -149,7 +145,13 @@ margin: 5px 0px;
     cursor: pointer;
 }
 
-    </style>
+{%endblock style%}
+</style>
+
+
+
+{%block body%}
+
 </head>
 <body>
     <header>
@@ -236,7 +238,14 @@ margin: 5px 0px;
         </form>
       </div>
     </div>
-    <script>const wrapper=document.querySelector(".wrapper");
+
+
+{%endblock body%}
+
+
+<script>
+  {%block script%}
+        const wrapper=document.querySelector(".wrapper");
         const loginlink=document.querySelector(".login-link");
         const registerlink=document.querySelector(".register-link");
         const btnpop=document.querySelector(".btn-pop");
@@ -260,6 +269,7 @@ margin: 5px 0px;
         btnrclose.addEventListener('click',()=>{
             wrapper.classList.remove('active-popup')
         });
-        </script>
-</body>
-</html>
+
+        
+{%endblock script%}
+</script>
