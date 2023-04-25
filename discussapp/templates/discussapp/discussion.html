@@ -8,22 +8,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color:#394867;
+    z-index:99;
+}
 .ask_q{
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 20px;
 }
 #ask_but{
-    all: unset;
-    cursor: pointer;
-    padding: 16px 9px;
-    background-color: blue;
+    padding: 11px 15px;
+    background-color: #212A3E;
+    /* border: none; */
+    color: white;
     border-radius: 5px;
-    text-decoration: none;
-    margin:10px;
+    cursor: pointer;
 }
 #ask_but:hover{
-    background-color: rgb(9, 9, 217);
+    background-color: #9BA4B5;
 }
 #ask_but a{
     text-decoration: none;
@@ -42,14 +45,14 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .question{
-    color: rgb(177, 198, 62);
+    color: #212A3E;
     font-weight:600;
     font-size: 2rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left:5px;
 }
 .answer{
-    color: rgb(231, 119, 43);
+    color: #212A3E;
     font-weight:600;
     font-size: 2rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -107,6 +110,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+.onediscussion{
+width: 100%;
+height: auto;
+border-radius: 10px;
+background-color: #9BA4B5;
+border: none;
+}
 
 {%endblock style%}
 </style>
@@ -155,7 +165,6 @@
                 <button class="submit" type="submit"><img class="image" height="40px" src="/static/send.png" alt="submit"></button>
             </form>
         </div>
-        <hr>
         {% endfor %}
     </div>
 </div>
