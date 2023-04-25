@@ -9,47 +9,59 @@
     box-sizing: border-box;
 }
 body{
-    font-family:cursive;
+    font-family:sans-serif;
     /* background-image: url('/static/background.jpg');  */
     background-color:rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-size: cover;
 }
+header{
+    background-color:#212A3E;
+    border: 1px solid transparent;
+
+}
 .navbar{
     margin: 10px 50px;
     display: flex;
     align-items: center;
-    color: black;
+    color: white;
 }
 #logout{
     text-decoration: none;
     cursor: pointer;
-    color: rgb(1, 7, 11);
+    color:white;
 }
 #discuss{
     text-decoration: none;
     cursor: pointer;
-    color: rgb(1, 4, 7);
+    color: white;
 }
 #logout:hover{
-    color: aqua;
+    color:white;
+    border-bottom: 2px solid white;
+    transition:0.2s ease-in;
 }
 #discuss:hover{
-    color: aqua;
+    color: white;
+    border-bottom: 2px solid white;
+    transition:0.2s ease-in;
 }
 .a_anchor{
     all: unset;
     cursor: pointer;
-    color: rgb(1, 2, 3);
+    color: white;
     font-weight: 100;
 }
 .a_anchor:hover{
-    color: aqua;
+    color: white;
     animation-name: a_hover;
+    border-bottom: 2px solid white;
+    transition:0.2s ease-in;
 }
 #form-popup {
     display: none;
     position: fixed;
+    color: white;
     border: 3px solid #f900cb;
 }
 
@@ -60,11 +72,11 @@ body{
     margin-left: -250px;
     position:absolute;
     padding: 30px;
-    background-color: transparent;
+    background-color:#212A3E;
     border: 2px solid black;
     border-radius: 20px;
     color: rgb(0, 0, 0);
-    backdrop-filter: blur(12px);
+    /* backdrop-filter: blur(12px); */
 }
 .close_form{
     all: unset;
@@ -80,7 +92,7 @@ body{
         padding: 12px 20px;
         margin: 15px 0;
         display: inline-block;
-        /* border: 1px solid aqua; */
+        /* border: 1px solid white; */
         box-sizing: border-box;
         background-color: rgba(128, 128, 128, 0.312);
         border: 2px solid rgba(0, 0, 0, 0);
@@ -127,14 +139,14 @@ body{
 }
 #search_bar button{
     padding: 11px 15px;
-    background-color: rgb(0, 0, 255);
-    border: none;
+    background-color: #212A3E;
+    /* border: none; */
     color: white;
     border-radius: 5px;
     cursor: pointer;
 }
 #search_bar button:hover{
-    background-color: mediumblue;
+    background-color: #9BA4B5;
 }
 
 .div_scheme{
@@ -146,6 +158,24 @@ body{
 }
 .schemes{
     margin-top: 50px;
+}
+.container{
+    width: 100%;
+    height: auto;
+    background-color:#394867;
+    z-index: 99;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+footer{
+    width: 100%;
+    height:60px;
+    background-color:#212A3E;
+    color: white;
+    text-align: center;
+}
+label{
+    color: white;
 }
 {%endblock style%}
 </style>
@@ -162,7 +192,7 @@ body{
         <div class="navbar">
             <form action="search" method="get" id="search_bar">
                 <input type="search" placeholder="Search here" name="searchQuery">
-                <button type="submit">search</button>
+                <button type="submit">Search</button>
             </form>
         </div>
 
@@ -180,7 +210,7 @@ body{
                             <img src="/static/close.png" height="40px" alt="">
                         </button>
                         
-                        <p style="text-align:center;margin-top: 45px;">SIGN UP</p>
+                        <p style="text-align:center;margin-top: 30px; color: white;font-size:1.5rem;margin-bottom: 10px;">SIGN UP</p>
     
                         <label for="uname"><b>USERNAME</b></label>
                         <input type="text" placeholder="Enter User Name" name="uname" required>
@@ -207,7 +237,7 @@ body{
                         {% comment %} <label for="psw"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required> {% endcomment %}
     
-                        <button type="submit" class="btn">Sign Up</button>
+                        <button type="submit" class="btn">SIGN UP</button>
                     </form>
                 </div>
         </div>
@@ -217,13 +247,13 @@ body{
         <div class="navbar" id="signin">
             <button href="" onclick="openSignin()" class="a_anchor">SIGN IN</button>
 
-            <div class="form-popup" id="form_signin" style="display: none; 0">
+            <div class="form-popup" id="form_signin" style="display: none; ">
                 <form action="signinSubmit" method="post" class="form-container">
                     {% csrf_token %}
                     <button class="close_form" onclick="closeSignin()">
                         <img src="/static/close.png" height="40px" alt="">
                     </button>
-                    <p style="text-align:center;margin-top: 45px;">SIGN IN</p>
+                    <p style="text-align:center;margin-top: 30px;color: white;font-size:1.5rem;margin-bottom: 10px;">SIGN IN</p>
 
                     <label for="uname"><b>USERNAME</b></label>
                     <input type="text" placeholder="Enter USERNAME" name="uname" required>
@@ -232,7 +262,7 @@ body{
                     <input type="password" placeholder="Enter Password" name="psw" required>
                     <a href="">Forgot Password</a>
 
-                    <button class="btn">Sign In</button>
+                    <button class="btn">SIGN IN</button>
                 </form>
             </div>
         </div>
@@ -241,6 +271,7 @@ body{
             <a href="discuss" id="discuss">DISCUSS</a>
         </div>
     </div>
+    
 </header>
 <div class="msg">
     {%for i in messages%}
@@ -257,7 +288,7 @@ body{
 
     <!-- <img height="50%" width="100%" src="/static/farmer.jpg" alt=""> -->
 
-
+<div class="container">
 <div class="schemes">
     {%for i in scheme%}
     <div class="div_scheme">
@@ -266,7 +297,10 @@ body{
     </div>
     {%endfor%}
 </div>
-
+</div>
+<footer>
+    &#169 Copywrite
+</footer>
 {%endblock body%}
 
 
