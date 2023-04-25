@@ -3,6 +3,11 @@
 
 <style>
 {%block style%}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .ask_q{
     display: flex;
     flex-direction: row-reverse;
@@ -11,10 +16,11 @@
 #ask_but{
     all: unset;
     cursor: pointer;
-    padding: 16px 20px;
+    padding: 16px 9px;
     background-color: blue;
     border-radius: 5px;
     text-decoration: none;
+    margin:10px;
 }
 #ask_but:hover{
     background-color: rgb(9, 9, 217);
@@ -74,7 +80,7 @@
 {%block body%}
 <div class="header">
     <div class="ask_q">
-        <button id="ask_but"><a href="ask_question">ask question</a></button>
+        <button id="ask_but"><a href="ask_question">Ask question</a></button>
     </div>
 
     <div id="discussions">
