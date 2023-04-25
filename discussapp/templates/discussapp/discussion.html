@@ -3,6 +3,11 @@
 
 <style>
 {%block style%}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .ask_q{
     display: flex;
     flex-direction: row-reverse;
@@ -11,10 +16,11 @@
 #ask_but{
     all: unset;
     cursor: pointer;
-    padding: 16px 20px;
+    padding: 16px 9px;
     background-color: blue;
     border-radius: 5px;
     text-decoration: none;
+    margin:10px;
 }
 #ask_but:hover{
     background-color: rgb(9, 9, 217);
@@ -29,23 +35,42 @@
     justify-content: center;
     border: 1px solid rgb(123, 123, 123);
 }
-.question{
-    color: rgb(9, 9, 95);
-    font-weight: bolder;
-    font-size: 50px;
+.who-asked{
+    color: rgb(21, 21, 130);
+    font-weight:600;
+    font-size: 1rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.question{
+    color: rgb(177, 198, 62);
+    font-weight:600;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left:5px;
+}
 .answer{
+    color: rgb(231, 119, 43);
+    font-weight:600;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
     font-family:Arial, Helvetica, sans-serif;
 }
+
 .div_answer{
     display: flex;
     flex-direction: row-reverse;
     margin-left: 20px;
     margin-right: 50px;
 }
-.thaughts{
+.replied{
+    color: rgb(21, 21, 130);
+    font-weight:600;
+    font-size: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top:10px;
+}
+.thoughts{
     font-size: 20px;
     width: 85%;
     height: 100px;
@@ -53,17 +78,20 @@
     margin-left: 20px;
     display: inline-block;
     box-sizing: border-box;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
 }
 .submit{
     all: unset;
     cursor: pointer;
     height: 100px;
+    
 }
 .share_answer{
     display: flex;
     flex-direction: column;
+}
+.button{
+    margin-top: 10px;
 }
 
 {%endblock style%}
@@ -74,7 +102,7 @@
 {%block body%}
 <div class="header">
     <div class="ask_q">
-        <button id="ask_but"><a href="ask_question">ask question</a></button>
+        <button id="ask_but"><a href="ask_question">Ask question</a></button>
     </div>
 
     <div id="discussions">
@@ -82,14 +110,19 @@
         {%for ques in queries%}
         <div class="onediscussion">
             <div class="div_question">
+                <p class="who-asked">
+                    Rathan:
+                                    </p>
                 <p class="question">
-                {{ques.question}}
-            </p>
+                {{ques.question}} </p>
             </div>
             
             {%for answer in ans%}
             {%if answer.query_id == ques.query_id%}
             <div class="div_answer">
+                <p class="replied">
+                    :Pradwin
+                </p>
                 <p class="answer">
                     {{answer.answer}}
                 </p>
@@ -100,9 +133,9 @@
         <div class="share_answer">
             <form action="answerSubmit" method="post">
                 {% csrf_token %}
-                <input class="thaughts" type="text" placeholder="share your thaughts" maxlength="1000" name="ans">
+                <input class="thoughts" type="text" placeholder="Share your thoughts" required maxlength="1000" name="ans">
                 <input style="display:none;" type="text" name="fid_qid" value="{{ques.query_id}}">
-                <button class="submit" type="submit"><img height="40px" src="/static/send.png" alt="submit"></button>
+                <button class="submit" type="submit"><img class="image" height="40px" src="/static/send.png" alt="submit"></button>
             </form>
         </div>
         <hr>
