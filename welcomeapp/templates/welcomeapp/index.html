@@ -114,14 +114,15 @@ nav a:hover{
     <div class="wrapper">
         <div class="form-box login">
           <h2>Login</h2>
-          <form action="#">
+          <form action="loginSubmit" method="post">
             <div class="input-box">
-              <input type="email" required />
-              <label>Email</label>
+                <label for="uname">Username</label>
+              <input type="text" required name="uname" />
+              <!-- <label>Username</label> -->
             </div>
             <div class="input-box">
-              <input type="password" required />
-              <label>Password</label>
+              <input type="password" name="psw" required />
+              <label for="psw">Password</label>
             </div>
             <button type="submit" class="btn">Login</button>
             <div class="login-register">
