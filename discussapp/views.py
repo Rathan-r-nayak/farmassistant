@@ -24,6 +24,7 @@ def answerSubmit(request):
         user=request.user
         userob=models.AuthUser.objects.get(username=user)
         farmer=models.Farmer.objects.get(fid=userob)
+
         ob=models.Answers(query_id=qid,fid=farmer,answer=ans)
         ob.save()
         return redirect('discusspage')
@@ -42,6 +43,7 @@ def questionSubmit(request):
         user=request.user
         userob=models.AuthUser.objects.get(username=user)
         farmer=models.Farmer.objects.get(fid=userob)
+
         ob=models.Questions(fid=farmer,question=query)
         ob.save()
 
