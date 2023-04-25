@@ -38,6 +38,11 @@ def signupSubmit(request):
         address=request.POST['address']
         psw=request.POST['psw']
 
+        newu=authenticate(username=uname,password=psw)
+        if newu is not None:
+            messages.success(request,f"username {newu} already taken")
+            return redirect('welcomePage')
+
         ob=User.objects.create_user(username=uname,password=psw)
         ob.first_name=fname
         ob.last_name=lname
@@ -49,8 +54,19 @@ def signupSubmit(request):
 
         farm=models.Farmer(fid=farmer,name=fname+" "+lname,age=age,email=umail,address=address)
         farm.save()
-        return redirect('welcomePage')
+        
+        user=authenticate(username=uname,password=psw)
+
+        if user is not None:
+            login(request,user)
+            messages.success(request,f"successfully logged in as {user}")
+            return redirect('welcomePage')
+        else:
+            messages.error(request,f"failed to login")
+            return redirect('welcomePage')
+    
     return HttpResponse("404-Not Found")
+
 
 def search(request):
     search_query=request.GET['searchQuery']

@@ -124,9 +124,12 @@
         {%for ques in queries%}
         <div class="onediscussion">
             <div class="div_question">
+                {%for f in farmer%}
                 <p class="who-asked">
-                    Rathan:
-                                    </p>
+                    {{f.name}}
+                    {{ forloop.counter }}
+                </p>
+                {%endfor%}
                 <p class="question">
                 {{ques.question}} </p>
             </div>

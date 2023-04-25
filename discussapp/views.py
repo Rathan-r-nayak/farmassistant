@@ -5,9 +5,13 @@ from django.http import HttpResponse,HttpResponseRedirect
 
 # Create your views here.
 def discuss(request):
-    query=models.Questions.objects.all().values()
+    query=models.Questions.objects.all()
     answer=models.Answers.objects.all().values()
-    farmer=models.Farmer.objects.all().values()
+    farmer=[]
+    for i in query:
+        farmer.append(models.Farmer.objects.get(fid=i.fid))
+    # farmer=models.Farmer.objects.all().values()
+    print(farmer)
     
     context={
         'queries':query,

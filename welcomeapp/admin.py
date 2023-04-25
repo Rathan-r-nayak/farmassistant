@@ -27,11 +27,13 @@ class schemes(admin.ModelAdmin):
 
 class benifits(admin.ModelAdmin):
     list_display=['stitle','scheme']
-    
+
+class ques(admin.ModelAdmin):
+    list_display=['fid','question']
 
 
 admin.site.register(models.Farmer,farmer)
-admin.site.register(models.Questions)
+admin.site.register(models.Questions,ques)
 admin.site.register(models.Benifits,benifits)
 
 admin.site.register(models.Answers,ans)
