@@ -2,7 +2,7 @@
 Farm Assistant
 
 
-# Description:
+## Description:
 The Farmer Website is an online platform dedicated to providing farmers with access to various government schemes and other facilities to enhance their agricultural businesses. The website is designed to be user-friendly and easily navigable, allowing farmers to quickly find the information they need.
 The website offers a range of features and resources, including information on government schemes such as subsidies, grants, and loans that are available to farmers. Farmers can learn about the eligibility criteria for each scheme, the application process, and the benefits they can receive.
 In addition to government schemes, the website provides information on a variety of other resources and facilities available to farmers, such as crop insurance, weather forecasting, market prices, and advisory services. These resources can help farmers make informed decisions and maximize their productivity and profitability.
@@ -10,14 +10,14 @@ The website also includes a forum where farmers can connect with one another, sh
 Overall, the Farmer Website is a comprehensive and essential resource for farmers, providing them with access to the information, resources, and support they need to succeed in their agricultural businesses
 
 
-# Tech stack:
+## Tech stack:
 * Django (high-level Python web framework)
 * MySQL (used for relational database management system (RDBMS))
 * HTML
 * CSS
 * JavaScript
 
-# Installation steps:
+## Installation steps:
 
 * Install vscode IDE    ->[vscode download](https://code.visualstudio.com/Download)
 
@@ -45,15 +45,15 @@ Overall, the Farmer Website is a comprehensive and essential resource for farmer
 * now go to browser and type http://127.0.0.1:8000/ and the project will start
 
 
-# Libraries and dependencies:
+## Libraries and dependencies:
 * python
 
-* django  ->pip install django
+* django
 
 * xampp 
 
-* vscode (or any IDE is ok)   ->[vscode download](https://code.visualstudio.com/Download)
+* vscode (or any IDE is ok)
 
 * mysql (which comes with xampp so no need to install mysql if xampp is installed)
 
-* mysqlclient ->pip install mysqlclient
+* mysqlclient
