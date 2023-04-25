@@ -22,10 +22,10 @@ def loginSubmit(request):
         if user is not None:
             login(request,user)
             messages.success(request,f"successfully logged in as {user}")
-            return redirect('main')
+            return redirect('welcomePage')
         else:
             messages.error(request,f"failed to login")
-            return redirect('main')
+            return redirect('welcomePage')
     
     return HttpResponse("404-Not Found")
 
@@ -46,6 +46,6 @@ def signupSubmit(request):
         ob.save()
         farm=models.Farmer(name=fname+" "+lname,age=age,email=umail,address=address)
         farm.save()
-        return redirect('main')
+        return redirect('welcomePage')
     return HttpResponse("404-Not Found")
 
