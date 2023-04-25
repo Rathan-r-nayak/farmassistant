@@ -7,9 +7,12 @@ from django.http import HttpResponse,HttpResponseRedirect
 def discuss(request):
     query=models.Questions.objects.all().values()
     answer=models.Answers.objects.all().values()
+    farmer=models.Farmer.objects.all().values()
+    
     context={
         'queries':query,
-        'ans':answer
+        'ans':answer,
+        'farmer':farmer,
     }
     print("\n",request.user,"\n")
     template = loader.get_template('discussapp/discussion.html')
