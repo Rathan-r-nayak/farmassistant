@@ -146,11 +146,11 @@ class DjangoSession(models.Model):
 
 
 class Farmer(models.Model):
-    fid = models.AutoField(primary_key=True)
+    fid = models.OneToOneField(AuthUser, models.DO_NOTHING, db_column='fid', primary_key=True)
     name = models.CharField(max_length=20)
     age = models.IntegerField()
     email = models.CharField(max_length=30)
-    address = models.TextField(blank=True, null=True)
+    address = models.TextField()
 
     class Meta:
         managed = False

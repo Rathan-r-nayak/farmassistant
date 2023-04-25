@@ -20,7 +20,7 @@ def answerSubmit(request):
         ans=request.POST['ans']
         qid=int(request.POST['fid_qid'])
 
-        farmer=models.Farmer.objects.get(fid=2)
+        farmer=models.Farmer.objects.get(fid=21)
         ob=models.Answers(query_id=qid,fid=farmer,answer=ans)
         ob.save()
         return redirect('discusspage')
@@ -36,7 +36,7 @@ def questionSubmit(request):
         query=request.POST['question']
 
         
-        farmer=models.Farmer.objects.get(fid=2)
+        farmer=models.Farmer.objects.get(fid=21)
         ob=models.Questions(fid=farmer,question=query)
         ob.save()
 

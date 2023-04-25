@@ -44,7 +44,11 @@ def signupSubmit(request):
         ob.last_name=lname
         ob.email=umail
         ob.save()
-        farm=models.Farmer(name=fname+" "+lname,age=age,email=umail,address=address)
+
+        farmer=models.AuthUser.objects.get(username=uname)
+        print("\n",farmer,"\n")
+
+        farm=models.Farmer(fid=farmer,name=fname+" "+lname,age=age,email=umail,address=address)
         farm.save()
         return redirect('welcomePage')
     return HttpResponse("404-Not Found")
