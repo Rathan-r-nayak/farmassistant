@@ -3,7 +3,68 @@
 
 <style>
 {%block style%}
-
+.ask_q{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+#ask_but{
+    all: unset;
+    cursor: pointer;
+    padding: 16px 20px;
+    background-color: blue;
+    border-radius: 5px;
+    text-decoration: none;
+}
+#ask_but:hover{
+    background-color: rgb(9, 9, 217);
+}
+#ask_but a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+#discussions{
+    width: 100%;
+    justify-content: center;
+    border: 1px solid rgb(123, 123, 123);
+}
+.question{
+    color: rgb(9, 9, 95);
+    font-weight: bolder;
+    font-size: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.answer{
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.div_answer{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+.thaughts{
+    font-size: 20px;
+    width: 85%;
+    height: 100px;
+    padding: 12px 20px;
+    margin-left: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.submit{
+    all: unset;
+    cursor: pointer;
+    height: 100px;
+}
+.share_answer{
+    display: flex;
+    flex-direction: column;
+}
 
 {%endblock style%}
 </style>
@@ -11,7 +72,43 @@
 
 
 {%block body%}
+<div class="header">
+    <div class="ask_q">
+        <button id="ask_but"><a href="ask_question">ask question</a></button>
+    </div>
 
+    <div id="discussions">
+        <!-- for loop here -->
+        {%for ques in queries%}
+        <div class="onediscussion">
+            <div class="div_question">
+                <p class="question">
+                {{ques.question}}
+            </p>
+            </div>
+            
+            {%for answer in ans%}
+            {%if answer.query_id == ques.query_id%}
+            <div class="div_answer">
+                <p class="answer">
+                    {{answer.answer}}
+                </p>
+            </div>
+            {%endif%}
+            {%endfor%}
+        </div>
+        <div class="share_answer">
+            <form action="answerSubmit" method="post">
+                {% csrf_token %}
+                <input class="thaughts" type="text" placeholder="share your thaughts" maxlength="1000" name="ans">
+                <input style="display:none;" type="text" name="fid_qid" value="{{ques.query_id}}">
+                <button class="submit" type="submit"><img height="40px" src="/static/send.png" alt="submit"></button>
+            </form>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
 {%endblock body%}
 
 
