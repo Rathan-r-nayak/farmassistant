@@ -57,8 +57,9 @@ body{
     padding: 30px;
     background-color: transparent;
     border: 2px solid black;
+    border-radius: 20px;
     color: rgb(0, 0, 0);
-    /* backdrop-filter: blur(12px); */
+    backdrop-filter: blur(12px);
 }
 .close_form{
     all: unset;
@@ -211,7 +212,7 @@ body{
         <div class="navbar" id="signin">
             <button href="" onclick="openSignin()" class="a_anchor">SIGN IN</button>
 
-            <div class="form-popup" id="form_signin" style="display: none;">
+            <div class="form-popup" id="form_signin" style="display: none; 0">
                 <form action="signinSubmit" method="post" class="form-container">
                     {% csrf_token %}
                     <button class="close_form" onclick="closeSignin()">
