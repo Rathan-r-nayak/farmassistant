@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+
+
+{%block font%}
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+{%endblock font%}
+
+<style>
+{%block style%}
+body{
+    font-family: 'Roboto';
+}
+h2{
+    color: rgb(103, 100, 65);
+    font-weight: bolder;
+    font-size: 35px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 20px;
+}
+.heading{
+    display: flex;
+    justify-content: center;
+}
+.about{
+    margin: 30px 20px;
+    
+}
+.subHead{
+    color: darkblue;
+    font-weight: bold;
+    font-size: 30px;
+}
+.details_scheme{
+    font-size: 20px;
+}
+.scheme_name{
+    font-size: 25px;
+    color: saddlebrown;
+}
+{%endblock style%}
+</style>
+
+
+{%block body%}
+<div class="content">
+    <div class="heading">
+        <h2>{{scheme.title}}</h2>
+    </div>
+
+    
+    <div class="about">
+        <p class="subHead">ABOUT THE SCHEME:</p>
+        <P class="details_scheme">{{scheme.about}}</P>
+    </div>
+
+    {%if benifit != None%}
+     <p class="subHead">RELATED SCHEMES:</p>
+     {%for i in benifit%}
+    <div class="relSchemes">
+        <h4 class="scheme_name">{{i.scheme}}</h4>
+        <p class="details_scheme">{{i.assistance}}</p>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+    <div class="tocontact">
+        <p class="subHead">TO CONTACT:</p>
+        <p class="details_scheme">{{scheme.tocontact}}</p>
+    </div>
+</div>
+
+{%endblock body%}
