@@ -61,7 +61,7 @@ nav a:hover{
     transform: scale(0);
 }
 .wrapper.active{
-    height: 520px;
+    height: 660px;
 }
 .wrapper.active-popup{
 transform:scale(1);
@@ -162,6 +162,8 @@ margin: 5px 0px;
             <a href="#" class="btn-pop">Login</a>
         </nav>
     </header>
+
+
     <div class="wrapper">
         <span class="btn-close icon-close">X</span>
         <div class="form-box login">
@@ -185,6 +187,8 @@ margin: 5px 0px;
             </div>
           </form>
         </div>
+
+
         <div class="form-box register">
         <h2>Register</h2>
         <form action="#">
@@ -196,13 +200,22 @@ margin: 5px 0px;
             <input type="email" required />
             <label>Email</label>
           </div>
+
+          <div class="input-box">
+            <input type="text" required />
+            <label>First Name</label>
+          </div>
+          <div class="input-box">
+            <input type="text" required />
+            <label>Last Name</label>
+          </div><div class="input-box">
+            <input type="text" required />
+            <label>Age</label>
+          </div>
+
           <div class="input-box">
             <input type="password" required />
             <label>Password</label>
-          </div>
-          <div class="remember">
-            <label><input type="checkbox" />Agree to Condition</label
-            ><a href="#">Forgot Password</a>
           </div>
           <button type="submit" class="btn">Register</button>
           <div class="login-register">
@@ -214,6 +227,9 @@ margin: 5px 0px;
         </form>
       </div>
     </div>
+
+
+
     <script>const wrapper=document.querySelector(".wrapper");
         const loginlink=document.querySelector(".login-link");
         const registerlink=document.querySelector(".register-link");
