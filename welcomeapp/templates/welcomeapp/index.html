@@ -56,8 +56,9 @@ body{
     position:absolute;
     padding: 30px;
     background-color: transparent;
+    border: 2px solid black;
     color: rgb(0, 0, 0);
-    backdrop-filter: blur(12px);
+    /* backdrop-filter: blur(12px); */
 }
 .close_form{
     all: unset;
@@ -162,14 +163,14 @@ body{
 
 
         <!-- SIGN UP -->
-        <div class="navbar" id="login">
-                <button href="" class="a_anchor" onclick="openLogin()">SIGN UP</button>
+        <div class="navbar" id="signup">
+                <button href="" class="a_anchor" onclick="openSignup()">SIGN UP</button>
 
 
-                <div class="form-popup" id="form_login" style="display: none;">
-                    <form action="entersignup" method="post" class="form-container">
+                <div class="form-popup" id="form_signup" style="display: none;">
+                    <form action="signupSubmit" method="post" class="form-container">
                         {% csrf_token %}
-                        <button class="close_form" onclick="closeLogin()">
+                        <button class="close_form" onclick="closeSignup()">
                             <img src="/static/close.png" height="40px" alt="">
                         </button>
                         
@@ -190,8 +191,8 @@ body{
                         <label for="age"><b>AGE</b></label>
                         <input type="text" placeholder="Enter age" name="age" required>
 
-                        <label for="address"><b></b></label>
-                        <input type="text" placeholder="Enter age" name="address" required>
+                        <label for="address"><b>ADDRESS</b></label>
+                        <input type="text" placeholder="Enter address" name="address" required>
 
 
                         <label for="psw"><b>PASSWORD</b></label>
@@ -200,7 +201,7 @@ body{
                         {% comment %} <label for="psw"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required> {% endcomment %}
     
-                        <button type="submit" class="btn"><a class="btn_a" href="login">Login</a></button>
+                        <button type="submit" class="btn"><a class="btn_a" href="signup">Sign Up</a></button>
                     </form>
                 </div>
         </div>
@@ -211,7 +212,7 @@ body{
             <button href="" onclick="openSignin()" class="a_anchor">SIGN IN</button>
 
             <div class="form-popup" id="form_signin" style="display: none;">
-                <form action="signinInput" method="post" class="form-container">
+                <form action="signinSubmit" method="post" class="form-container">
                     {% csrf_token %}
                     <button class="close_form" onclick="closeSignin()">
                         <img src="/static/close.png" height="40px" alt="">
@@ -270,9 +271,9 @@ body{
     // signin
     function openSignin() {
        
-        if(document.getElementById("form_login").style.display == "block")
+        if(document.getElementById("form_signup").style.display == "block")
         {
-            document.getElementById("form_login").style.display = "none";
+            document.getElementById("form_signup").style.display = "none";
         }
         document.getElementById("form_signin").style.display = "block";
     
@@ -284,17 +285,17 @@ body{
     
     
     //   login
-      function openLogin() {
+      function openSignup() {
         if(document.getElementById("form_signin").style.display == "block")
         {
             document.getElementById("form_signin").style.display = "none"
         }
-        document.getElementById("form_login").style.display = "block";
+        document.getElementById("form_signup").style.display = "block";
         
       }
       
-      function closeLogin() {
-        document.getElementById("form_login").style.display = "none";
+      function closeSignup() {
+        document.getElementById("form_signup").style.display = "none";
       }
     
 {%endblock script%}
