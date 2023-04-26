@@ -3,12 +3,22 @@
 
 <style>
 {%block style%}
-
+*{
+    margin: 0;
+    padding: 0;box-sizing: border-box;
+}
+body{
+    background-color:#212A3E;
+    color: white;
+}
 .querycontainer{
-    display: flex;
+    /* display: flex;
     margin: 50px;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
+    width:100%;
+    height:100vh;
+    background-color: #9BA4B5;
 }
 #ques_field{
         font-family: 'Carter One', cursive;
@@ -16,7 +26,7 @@
         width: 100%;
         height: 100px;
         padding: 12px 20px;
-        margin: 20px;
+        /* margin: 20px; */
         display: inline-block;
         /* border: 1px solid aqua; */
         box-sizing: border-box;
@@ -26,21 +36,21 @@
         color:black;
 }
 button {
-        font-family: 'Carter One', cursive;
-        font-size: 18px;
-/* font-family: 'Secular One', sans-serif; */
-        background-color:blue;
-        border:solid 1px blue;
-        color: white;
-        padding: 14px 20px;
-        cursor: pointer;
-        border-radius: 10px;
+    padding: 11px 15px;
+    background-color: #212A3E;
+    /* border: none; */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
     }
 .submit{
-    background-color: mediumblue;
+    background-color:  #212A3E;
     display: flex;
     justify-content: center;
     margin: 20px;
+}
+.querycontainer button:hover{
+    background-color: #9BA4B5;
 }
 form{
     width: 100%;
@@ -52,7 +62,7 @@ form{
 
 
 {%block body%}
-<h2>Ask Query</h2>
+<h2 style="margin:10px;">Ask Query</h2>
 <br>
 <div class="querycontainer">
     <form action="questionSubmit" method="post">
