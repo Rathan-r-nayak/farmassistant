@@ -84,15 +84,19 @@ align-items: center;
         <P class="details_scheme">{{scheme.about}}</P>
     </div>
 
-    {%if benifit != None%}
-     <p class="subHead">RELATED SCHEMES:</p>
+    
+     
      {%for i in benifit%}
+     {%if forloop.counter == 1%}
+     <p class="subHead">RELATED SCHEMES:</p>
+     {%endif%}
     <div class="relSchemes">
         <h4 class="scheme_name">{{i.scheme}}</h4>
         <p class="details_scheme">{{i.assistance}}</p>
+        <p>{{i.criteria}}</p>
     </div>
     {%endfor%}
-    {%endif%}
+    
 
     <div class="tocontact">
         <p class="subHead">TO CONTACT:</p>
