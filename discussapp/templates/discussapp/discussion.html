@@ -133,7 +133,7 @@ border: none;
         <!-- for loop here -->
         {%for ques in queries%}
         <div class="onediscussion">
-            <p style="font-size: larger;color: rgb(66, 78, 0);">question</p>
+            <p style="font-size: larger;color: rgb(66, 78, 0);">Question</p>
             <div class="div_question">
                 <!-- <p class="who-asked">
                     Rathan:
@@ -141,9 +141,9 @@ border: none;
                 <p class="question">
                 {{ques.question}} </p>
             </div>
-            
+            <hr>
             <p class="div_answer" style="font-size: larger;
-            color: rgb(87, 35, 0);">answers</p>
+            color: rgb(87, 35, 0);">Answers</p>
             {%for answer in ans%}
             {%if answer.query_id == ques.query_id%}
             <div class="div_answer">
