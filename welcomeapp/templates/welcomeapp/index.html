@@ -166,6 +166,7 @@ header{
     z-index: 99;
     padding-top: 1px;
     padding-bottom: 1px;
+    overflow: hidden;
 }
 footer{
     width: 100%;
@@ -207,6 +208,7 @@ align-items: center;
 .copy{
     text-align:center;
 }
+
 {%endblock style%}
 </style>
 
@@ -288,7 +290,7 @@ align-items: center;
                     <label for="uname"><b>USERNAME</b></label>
                     <input type="text" placeholder="Enter USERNAME" name="uname" required>
 
-                    <label for="psw"><b>Password</b></label>
+                    <label for="psw"><b>PASSWORD</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
 
                     <button class="btn">SIGN IN</button>
@@ -322,7 +324,6 @@ align-items: center;
     <!-- <img height="50%" width="100%" src="/static/farmer.jpg" alt=""> -->
 
 <div class="container">
-    
 <div class="schemes">
     {%for i in scheme%}
     <div class="div_scheme">
@@ -342,7 +343,7 @@ align-items: center;
     <div class="links">
         <a href="https://github.com/Rathan-r-nayak">Rathan Nayak</a>
         <a href="https://github.com/Pradwin">Pradwin Sherigar</a>
-        <a href="https://github.com/Vijayakumarbiradar22">VijayKumar</a>
+        <a href="https://github.com/Vijayakumarbiradar22">VijayKumar Birada</a>
     </div>
 </div>
 <div class="copy">
@@ -385,6 +386,6 @@ align-items: center;
       function closeSignup() {
         document.getElementById("form_signup").style.display = "none";
       }
-    
+
 {%endblock script%}
 </script>

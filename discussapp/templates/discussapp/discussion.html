@@ -145,6 +145,7 @@ align-items: center;
 .copy{
     text-align:center;
     background-color:#212A3E ;
+    margin-top: -2px;
     
 }
 {%endblock style%}
@@ -162,7 +163,7 @@ align-items: center;
         <!-- for loop here -->
         {%for ques in queries%}
         <div class="onediscussion">
-            <p style="font-size: larger;color: rgb(66, 78, 0);">Question</p>
+            <p style="font-size: larger;color: rgb(66, 78, 0);">Question:</p>
             <div class="div_question">
                 <!-- <p class="who-asked">
                     Rathan:
@@ -172,7 +173,7 @@ align-items: center;
             </div>
             <hr>
             <p class="div_answer" style="font-size: larger;
-            color: rgb(87, 35, 0);">Answers</p>
+            color: rgb(87, 35, 0);">:Answers</p>
             {%for answer in ans%}
             {%if answer.query_id == ques.query_id%}
             <div class="div_answer">
