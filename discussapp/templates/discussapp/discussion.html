@@ -10,7 +10,7 @@
 }
 body{
     background-color:#394867;
-    z-index:99;
+    /* z-index:99; */
 }
 .ask_q{
     display: flex;
@@ -120,6 +120,33 @@ border: none;
 .image{
     margin-bottom: -10px;
 }
+footer{
+    width: 100%;
+    height:100px;
+    background-color:#212A3E;
+    color: white;;
+}
+.about{
+    display: flex;
+    justify-content: space-around;
+align-items: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+    margin: 3px 0;
+}
+.links{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+.copy{
+    text-align:center;
+    background-color:#212A3E ;
+    
+}
 {%endblock style%}
 </style>
 
@@ -135,7 +162,7 @@ border: none;
         <!-- for loop here -->
         {%for ques in queries%}
         <div class="onediscussion">
-            <p style="font-size: larger;color: rgb(66, 78, 0);">question</p>
+            <p style="font-size: larger;color: rgb(66, 78, 0);">Question</p>
             <div class="div_question">
                 <!-- <p class="who-asked">
                     Rathan:
@@ -143,9 +170,9 @@ border: none;
                 <p class="question">
                 {{ques.question}} </p>
             </div>
-            
+            <hr>
             <p class="div_answer" style="font-size: larger;
-            color: rgb(87, 35, 0);">answers</p>
+            color: rgb(87, 35, 0);">Answers</p>
             {%for answer in ans%}
             {%if answer.query_id == ques.query_id%}
             <div class="div_answer">
@@ -170,6 +197,23 @@ border: none;
         {% endfor %}
     </div>
 </div>
+<footer>
+    <div class="about">
+    <div class="links">
+        <a href="#">About us</a>
+        <a href="#">Contact us</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+    <div class="links">
+        <a href="https://github.com/Rathan-r-nayak">Rathan Nayak</a>
+        <a href="https://github.com/Pradwin">Pradwin Sherigar</a>
+        <a href="https://github.com/Vijayakumarbiradar22">VijayKumar</a>
+    </div>
+</div>
+<div class="copy">
+    &#169 CopyRight
+</div>
+</footer>
 {%endblock body%}
 
 

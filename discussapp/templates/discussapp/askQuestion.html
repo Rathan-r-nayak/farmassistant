@@ -3,12 +3,22 @@
 
 <style>
 {%block style%}
-
+*{
+    margin: 0;
+    padding: 0;box-sizing: border-box;
+}
+body{
+    background-color:#212A3E;
+    color: white;
+}
 .querycontainer{
-    display: flex;
+    /* display: flex;
     margin: 50px;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
+    width:100%;
+    height:100vh;
+    background-color: #9BA4B5;
 }
 #ques_field{
         font-family: 'Carter One', cursive;
@@ -16,7 +26,7 @@
         width: 100%;
         height: 100px;
         padding: 12px 20px;
-        margin: 20px;
+        /* margin: 20px; */
         display: inline-block;
         /* border: 1px solid aqua; */
         box-sizing: border-box;
@@ -26,24 +36,49 @@
         color:black;
 }
 button {
-        font-family: 'Carter One', cursive;
-        font-size: 18px;
-/* font-family: 'Secular One', sans-serif; */
-        background-color:blue;
-        border:solid 1px blue;
-        color: white;
-        padding: 14px 20px;
-        cursor: pointer;
-        border-radius: 10px;
+    padding: 11px 15px;
+    background-color: #212A3E;
+    /* border: none; */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
     }
 .submit{
-    background-color: mediumblue;
+    background-color:  #212A3E;
     display: flex;
     justify-content: center;
     margin: 20px;
 }
+.querycontainer button:hover{
+    background-color: #9BA4B5;
+}
 form{
     width: 100%;
+}
+footer{
+    width: 100%;
+    height:100px;
+    background-color:#212A3E;
+    color: white;
+}
+.about{
+    display: flex;
+    justify-content: space-around;
+align-items: center;
+}
+/* a{
+    text-decoration: none;
+    color: white;
+    margin: 3px 0;
+} */
+.links{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+.copy{
+    text-align:center;
 }
 {%endblock style%}
 </style>
@@ -52,7 +87,7 @@ form{
 
 
 {%block body%}
-<h2>Ask Query</h2>
+<h2 style="margin:10px;">Ask Query</h2>
 <br>
 <div class="querycontainer">
     <form action="questionSubmit" method="post">
@@ -61,6 +96,22 @@ form{
         <button class="submit" type="submit">SUBMIT</button>
     </form>
 </div>
-
+<footer>
+    <div class="about">
+    <div class="links">
+        <a href="#">About us</a>
+        <a href="#">Contact us</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+    <div class="links">
+        <a href="https://github.com/Rathan-r-nayak">Rathan Nayak</a>
+        <a href="https://github.com/Pradwin">Pradwin Sherigar</a>
+        <a href="https://github.com/Vijayakumarbiradar22">VijayKumar</a>
+    </div>
+</div>
+<div class="copy">
+    &#169 CopyRight
+</div>
+</footer>
 
 {%endblock body%}
